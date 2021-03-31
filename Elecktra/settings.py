@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'chat',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'electricity',
+
 
     #for social auth
     'django.contrib.sites',
@@ -79,6 +82,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Elecktra.wsgi.application'
+ASGI_APPLICATION = 'Elecktra.routing.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+   }
+}
 
 
 # Database
@@ -88,8 +97,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '127.0.0.1',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'root',
+        'PASSWORD': 'Giridhar2339',
         'NAME': 'elecktra',
     }
 }
