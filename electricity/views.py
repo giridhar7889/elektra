@@ -27,6 +27,7 @@ def registeruser(request):
                 data.last_name=request.POST["last_name"]
                 data.username=request.POST["username"]
                 data.email = request.POST["email"]
+                data.area=request.POST["area"]
                 data.is_active = True
                 print("user saved")
                 data.save() 

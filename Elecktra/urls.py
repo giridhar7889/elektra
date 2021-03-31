@@ -33,7 +33,7 @@ urlpatterns = [
     path('contact/',views.contact,name="contact"),
     path('Forgot_Password/',views.forgotp,name="forgotp"),
     path('accounts/', include('allauth.urls')),
-    path('chat/', include('chat.urls')),
+    path('chat/', include('chat.urls'), name="chat"),
 
 ]
 

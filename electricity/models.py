@@ -41,6 +41,7 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=20,null=True, blank=False,verbose_name='last_name')
     password = models.CharField(max_length=20,null=True,blank=False,verbose_name='password')
     username = models.CharField(max_length=20,unique = True,verbose_name='username')
+    area = models.CharField(max_length=50,verbose_name='area',blank=False,null=True)
     rpassword = models.CharField(max_length=20,null=True,blank=False,verbose_name='confirm')
     is_active = models.BooleanField(default=True)
     is_active = models.BooleanField(default=False)

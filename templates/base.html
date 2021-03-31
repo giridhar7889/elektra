@@ -74,8 +74,10 @@
           <li><a {% if url_name == 'announcements' %}class="active"{% endif %} href="{% url 'announcements' %}">Announcements</a></li>
           <li><a {% if url_name == 'feedback' %}class="active"{% endif %} href="{% url 'feedback' %}">Feedback</a></li>
           <li><a {% if url_name == 'contact' %}class="active"{% endif %} href="{% url 'contact' %}">Contact Us</a></li>
+
           {%endwith%}
           {% if user.is_authenticated %}
+          <li> <a href="/chat">Chat</a></li>
           <li><a class="usernamelink" href="#" >Welcome, {{ user.first_name }}  {{user.last_name}}</a></li>
           <li style=" font-weight: 800;
                     font-size: 13px;
