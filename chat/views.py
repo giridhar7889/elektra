@@ -2,10 +2,24 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 import json
+from electricity.models import Location
+from django.contrib.auth.models import User
 
 
 def index(request):
-    return render(request, 'chat/index.html', {})
+    username = request.user.username
+
+    print(username)
+
+    obj = Location.objects.filter(user=username).first()
+    print(obj)
+    print(obj.area)
+    values = {
+        'area': obj.area,
+        'city': obj.city
+    }
+
+    return render(request, 'chat/index.html', values)
 
 
 @login_required

@@ -117,7 +117,7 @@
                                 {% csrf_token %}
                                 <h2>Sign Up</h2>
                                 <div class="form-group">
-                                  <input type="email" class="form-control" name="username" placeholder="Email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                  <input type="email" class="form-control" name="email" placeholder="Email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                                   
                                   {{errorE}}
                                 </div>
@@ -128,10 +128,7 @@
                                   <input type="text" name="last_name" class="form-control" placeholder="last_name" id="exampleInputFirst" required>
                                 </div>
                                 <div class="form-group">
-                                  <input type="text" name="area" class="form-control" placeholder="area" id="exampleInputFirst" required>
-                                </div>
-                                <div class="form-group">
-                                  <input type="text" name="email" class="form-control" placeholder="Username" id="exampleInputFirst" required>
+                                  <input type="text" name="username" class="form-control" placeholder="Username" id="exampleInputFirst" required>
                                 </div>
                                 <div class="form-group">
                                   <input type="password" name="password" class="form-control" placeholder="Password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
@@ -165,12 +162,21 @@
                                 {% csrf_token %}
                                 <h2>Log in</h2>
                                 <div class="form-group">
-                                  <input type="text" class="form-control" name="username" placeholder="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                  <input type="text" class="form-control" name="username" placeholder="Username" id="exampleInputEmail1" aria-describedby="emailHelp">
                                   
                                 </div>
                                 <div class="form-group">
                                   <input type="password" name="password" class="form-control" placeholder="Password" id="exampleInputPassword1">
                                     {{invalid}}
+                                </div>
+                                <div class="form-group">
+                                  <input type="text" class="form-control" name="area" placeholder="Area" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                                </div>
+
+                                <div class="form-group">
+                                  <input type="text" class="form-control" name="city" placeholder="City" id="exampleInputEmail1" aria-describedby="emailHelp">
+
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                               </form>

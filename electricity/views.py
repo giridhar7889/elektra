@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.conf import settings
-from electricity.models import electricity, Contact, User as elec_user
+from electricity.models import electricity, Contact,Location
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth.forms import UserCreationForm
@@ -16,11 +16,12 @@ from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 def index(request):
-    print(User.objects.filter(username="giridhar2339"))
-    #data=User()
 
 
-    return render(request, 'index.html', {})
+
+
+
+    return render(request, 'index.html')
 
 
 def registeruser(request):
@@ -33,7 +34,6 @@ def registeruser(request):
                 data.last_name = request.POST["last_name"]
                 data.username = request.POST["username"]
                 data.email = request.POST["email"]
-                data.area = request.POST["area"]
                 data.is_active = True
                 print("user saved")
                 data.save()
@@ -60,6 +60,14 @@ def loginuser(request):
         if (request.method == 'POST'):
             username = request.POST.get('username')
             password = request.POST.get('password')
+            area = request.POST.get('area')
+            city = request.POST.get('city')
+            data = Location()
+            data.area = area
+            data.city = city
+            data.user=username
+            data.save()
+
             user = authenticate(username=username, password=password)
             if user:
                 if user.is_active:
