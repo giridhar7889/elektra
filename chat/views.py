@@ -8,12 +8,7 @@ from django.contrib.auth.models import User
 
 def index(request):
     username = request.user.username
-
-    print(username)
-
     obj = Location.objects.filter(user=username).first()
-    print(obj)
-    print(obj.area)
     values = {
         'area': obj.area,
         'city': obj.city
